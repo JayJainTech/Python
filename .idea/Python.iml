@@ -2,9 +2,10 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.github" />
       <excludeFolder url="file://$MODULE_DIR$/.gitignore" />
     </content>
-    <orderEntry type="jdk" jdkName="~/.pyenv/versions/3.14.7/bin/python3" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="~\AppData\Local\Microsoft\WindowsApps\python3.exe" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
