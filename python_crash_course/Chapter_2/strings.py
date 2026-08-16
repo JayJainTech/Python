@@ -1,5 +1,4 @@
 # Variables
-
 message = "Hello World"
 print(message)
 
@@ -16,7 +15,6 @@ name = "ada lovelace"
 print(name.title())
 print(name.upper())
 print(name.lower())
-
 
 # Tab
 print("\tPython")
@@ -53,4 +51,21 @@ print(full_name.upper())
 print(full_name.title())
 
 # Famous Quote
-print('Papa Baby once said, "It\'s not what you know, but what you implement".')
+print('Papa Baby once said, "It\'s not what you know, but what you implement."')
+
+# Famous Quote 2
+famous_person = "Papa Baby"
+message = "It's not what you know, but what you implement."
+print(f'{famous_person.title()} once said, "{message}"')
+
+# Stripping Names
+whitespace_name = " \t Pallavi Jain  \n \t "
+print(whitespace_name)
+print(whitespace_name.lstrip())
+print(whitespace_name.rstrip())
+print(whitespace_name.strip())
+
+# File Extensions
+file_name = "python_notes.txt"
+file_name = file_name.removesuffix(".txt")
+print(file_name)
