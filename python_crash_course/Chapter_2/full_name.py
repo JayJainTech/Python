@@ -30,4 +30,27 @@ print(f"{favorite_language}Is there a space?")
 print(f"{favorite_language.rstrip()}Is there a space?")
 print(f"{favorite_language.lstrip()}Is there a space?")
 print(f"{favorite_language.strip()}Is there a space?")
-print(f"{favorite_language}Is there a space?")      
+print(f"{favorite_language}Is there a space?")
+
+# Removing Prefixes
+nostarch_url = "https://nostarch.com"
+print(nostarch_url)
+print(nostarch_url.removeprefix("https://"))
+
+# Avoiding Syntax Err0rs With Strings
+message = "One of Python's strengths is its diverse community."
+print(message)
+# message = 'One of Python's strengths is its diverse community.'(Need to use double quotes when using an apostrophy inside quotes)
+
+# Personal Message
+name = "Pallavi"
+print(f"Hello {name}, how are you doing today?")
+
+# Name Cases
+full_name = "Pallavi jain"
+print(full_name.lower())
+print(full_name.upper())
+print(full_name.title())
+
+# Famous Quote
+print('Papa Baby once said, "It\'s not what you know, but what you implement".')
