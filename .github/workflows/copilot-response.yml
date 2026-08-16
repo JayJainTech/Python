@@ -1,0 +1,90 @@
+name: Copilot Auto-Response
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  respond:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: read
+      
+    steps:
+      - name: Check if comment mentions Copilot
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = context.payload.comment.body;
+            const hasCopilot = /\b(copilot|@github-copilot)\b/i.test(comment);
+            core.setOutput('should_respond', hasCopilot);
+            
+            // Extract the actual question (remove @copilot mention)
+            const question = comment.replace(/\b@?github-copilot\b/i, '').replace(/\bcopilot\b/i, '').trim();
+            core.setOutput('question', question);
+      
+      - name: Get AI Response
+        if: steps.check.outputs.should_respond == 'true'
+        id: ai
+        uses: actions/github-script@v7
+        env:
+          QUESTION: ${{ steps.check.outputs.question }}
+        with:
+          script: |
+            const question = process.env.QUESTION || "What can I help you with?";
+            
+            // Use Hugging Face free inference API (no auth required for basic usage)
+            try {
+              const response = await fetch('https://api-inference.huggingface.co/models/gpt2', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  inputs: question,
+                  parameters: { max_length: 100 }
+                })
+              });
+              
+              if (!response.ok) {
+                throw new Error(`API error: ${response.status}`);
+              }
+              
+              const result = await response.json();
+              const text = result[0]?.generated_text || "Unable to generate response.";
+              core.setOutput('response', text);
+            } catch (error) {
+              console.error('Error:', error);
+              core.setOutput('response', `⚠️ Error: ${error.message}. Try again or check your question.`);
+            }
+      
+      - name: Post Response Comment
+        if: steps.check.outputs.should_respond == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const response = `${{ steps.ai.outputs.response }}`;
+            const questionText = `${{ steps.check.outputs.question }}`;
+            
+            const comment = `**Copilot Response:**\n\n> **Q:** ${questionText || '(no question provided)'}\n\n**A:** ${response}\n\n---\n*This is an automated response from GitHub Actions.*`;
+            
+            if (context.issue.pull_request) {
+              github.rest.pulls.createReview({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.issue.number,
+                body: comment,
+                event: 'COMMENT'
+              });
+            } else {
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
