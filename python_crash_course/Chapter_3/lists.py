@@ -54,9 +54,23 @@ print(f'Dear {dinner_invitees[1].title()},\n\t You are invited to dinner at my p
 # Changing Guest List
 print(f'\nWHY THE HELL YOU CANNOT ATTEND LEH? OKAY {dinner_invitees[2].upper()} SEE YOU LATER LEH\n')
 dinner_invitees.remove('TIMMY FALIUrE')
-print(f'Dear {dinner_invitees[0].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\n\tJay\n')
-print(f'Dear {dinner_invitees[1].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\n\tJay\n')
+print(f'Dear {dinner_invitees[0].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[1].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
 dinner_invitees.append('Papa BAby')
-print(f'Dear {dinner_invitees[0].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\n\tJay\n')
-print(f'Dear {dinner_invitees[2].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\n\tJay\n')
-print(f'Dear {dinner_invitees[1].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\n\tJay')
+print(f'Dear {dinner_invitees[0].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[2].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[1].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+
+# More Guests
+print("Hi, \n\tI got a new dinner table. So, I will be inviting 3 more guests to the dinner. \nBest, \nJay")
+dinner_invitees.insert(0, 'GJ')
+dinner_invitees.insert(2, 'RJ')
+dinner_invitees.append('PJ')
+print(f'Dear {dinner_invitees[0].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[1].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[2].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[3].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[4].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+print(f'Dear {dinner_invitees[5].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
+
++
