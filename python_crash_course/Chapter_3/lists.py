@@ -73,4 +73,31 @@ print(f'Dear {dinner_invitees[3].title()},\n\t You are invited to dinner at my p
 print(f'Dear {dinner_invitees[4].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
 print(f'Dear {dinner_invitees[5].title()},\n\t You are invited to dinner at my place at 3 PM today.\n\t See you there!\nBest,\nJay\n')
 
-+
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.sort()
+print(cars)
+cars.sort(reverse=True)
+print(cars)
+print(sorted(cars)) # temporary change
+print(cars)
+cars.reverse()
+print(cars)
+print(len(cars)) # Number of items in a list
+
+# Seeing the World
+places_to_visit = ['china', 'canada', 'argentina', 'brazil', 'hawaii']
+print(places_to_visit)
+print(sorted(places_to_visit))
+print(places_to_visit)
+print(sorted(places_to_visit, reverse=True))
+print(places_to_visit)
+places_to_visit.reverse()
+print(places_to_visit)
+places_to_visit.sort()
+print(places_to_visit)
+places_to_visit.sort(reverse=True)
+
+# Dinner Guests
+print(f"I am inviting {len(dinner_invitees)} people to my dinner.")
+
+# Avoiding Index Erors when working with lists
